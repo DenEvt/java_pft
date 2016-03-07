@@ -1,3 +1,4 @@
 apply plugin: 'java'
 apply plugin: 'application'
 mainClassName = "ru.train.devt.FirstProgram"
+mainClassName = "ru.train.devt.Point"
