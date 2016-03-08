@@ -6,13 +6,8 @@ package ru.train.devt;
 public class Point {
 
   public static void main(String[] args) {
-    double ax = 1;
-    double ay = 1;
-    double bx = 3;
-    double by = 2;
-
-    double distance = Math.sqrt((bx - ax) * (bx - ax) + (by - ay) * (by - ay));
-    System.out.println("Длинна отрезка между точкой A(" + ax + "," + ay + ")" + " и " + "точкой B(" + bx + "," + by + ")" + " = " + distance);
+    Distance r = new Distance(1, 1, 3, 2);
+    System.out.println("Длинна отрезка между точкой A(" + r.ax + "," + r.ay + ")" + " и " + "точкой B(" + r.bx + "," + r.by + ")" + " = " + r.distance());
   }
 
 
