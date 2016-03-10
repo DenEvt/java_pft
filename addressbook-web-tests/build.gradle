@@ -1,7 +1,5 @@
 apply plugin: 'java'
-apply plugin: 'application'
-mainClassName = "ru.train.devt.FirstProgram"
-mainClassName = "ru.train.devt.Point"
+
 
 repositories {
     mavenCentral()
@@ -9,5 +7,5 @@ repositories {
 
 dependencies {
     compile 'org.testng:testng:6.9.10'
-
+    compile 'org.seleniumhq.selenium:selenium-java:2.52.0'
 }
