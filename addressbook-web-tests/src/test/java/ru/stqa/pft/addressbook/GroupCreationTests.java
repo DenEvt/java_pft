@@ -14,7 +14,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.*;
 import static org.openqa.selenium.OutputType.*;
 
-public class GrougCreationTests {
+public class GroupCreationTests {
     FirefoxDriver wd;
     
     @BeforeMethod
@@ -24,7 +24,7 @@ public class GrougCreationTests {
     }
     
     @Test
-    public void GrougCreationTests() {
+    public void GroupCreationTests() {
         wd.get("http://localhost:8080/addressbook/group.php");
         wd.findElement(By.name("user")).click();
         wd.findElement(By.name("user")).clear();
