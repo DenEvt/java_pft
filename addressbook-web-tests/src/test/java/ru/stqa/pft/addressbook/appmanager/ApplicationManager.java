@@ -4,9 +4,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.concurrent.TimeUnit;
 
-/**
- * Created by devt on 11.03.2016.
- */
 public class ApplicationManager {
     FirefoxDriver wd;
 
