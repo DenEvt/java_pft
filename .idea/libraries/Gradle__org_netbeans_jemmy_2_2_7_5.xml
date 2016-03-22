@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.netbeans:jemmy:2.2.7.5">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.netbeans/jemmy/2.2.7.5/8cc4aa6b7b5fadd2fe2a777f895c28db99af97cf/jemmy-2.2.7.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.netbeans/jemmy/2.2.7.5/1f81154c48a7c80c3e1b699da1a066e186849f57/jemmy-2.2.7.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
