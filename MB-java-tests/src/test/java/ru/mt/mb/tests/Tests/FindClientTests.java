@@ -39,8 +39,8 @@ public class FindClientTests {
     new JButtonOperator(findClient, new NameComponentChooser("findButton")).clickMouse();
   }
 
-  private void gotoMenu(String path) {
-    new JMenuBarOperator(mainFrame).pushMenuNoBlock(path);
+  private void gotoMenu(String menupath) {
+    new JMenuBarOperator(mainFrame).pushMenuNoBlock(menupath);
   }
 
   @AfterMethod
