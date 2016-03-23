@@ -1,7 +1,6 @@
 package ru.mt.mb.tests.Tests;
 
 import org.netbeans.jemmy.ClassReference;
-import org.netbeans.jemmy.QueueTool;
 import org.netbeans.jemmy.operators.*;
 import org.netbeans.jemmy.util.NameComponentChooser;
 import org.testng.annotations.AfterMethod;
@@ -16,36 +15,54 @@ public class FindClientTests {
   public void setUp() throws Exception {
     new ClassReference("mango.billing.client.Main").startApplication();
     mainFrame = new JFrameOperator();
-    login();
+    login("dev", "1");
   }
 
-  private void login() {
+  private void login(String login, String password) {
     JDialogOperator dialog = new JDialogOperator();
-    new JTextFieldOperator(dialog, new NameComponentChooser("login")).setText("dev");
-    new JPasswordFieldOperator(dialog).setText("1");
+    textField(dialog, "login", login);
+    passwordField(dialog, "password", password);
     new JButtonOperator(dialog, "ОК").clickMouse();
     new JButtonOperator(new JComponentOperator(mainFrame), "Закрыть").clickMouse();
   }
 
-  @Test
-  public void testFindClient() {
-    gotoMenu("Файл|Найти клиента");
-    JComponentOperator findClient = new JComponentOperator(mainFrame);
-    new JRadioButtonOperator(findClient, "Счет").clickMouse();
-    new JRadioButtonOperator(findClient, "Создания").clickMouse();
-    new JCheckBoxOperator(findClient, "Москва").clickMouse();
-    new JTextFieldOperator(findClient, new NameComponentChooser("find")).setText("777888");
-    new JTextFieldOperator(findClient, 3).setText("333");
-    new JButtonOperator(findClient, new NameComponentChooser("findButton")).clickMouse();
+  private void passwordField(JDialogOperator frame, String password, String text) {
+    new JPasswordFieldOperator(frame, new NameComponentChooser(password)).setText(text);
   }
 
-  private void gotoMenu(String menupath) {
-    new JMenuBarOperator(mainFrame).pushMenuNoBlock(menupath);
+  @Test
+  public void testFindClient() {
+    gotoMenu(mainFrame, "Файл|Найти клиента");
+    JComponentOperator findClient = new JComponentOperator(mainFrame);
+    rButton(findClient, "Счет");
+    chkBox(findClient, "Москва");
+    textField(findClient, "find", "777777");
+    btnC(findClient, "findButton");
+  }
+
+  private void btnC(JComponentOperator frame, String name) {
+    new JButtonOperator(frame, new NameComponentChooser(name)).clickMouse();
+  }
+
+  private void textField(ContainerOperator frame, String name, String text) {
+    new JTextFieldOperator(frame, new NameComponentChooser(name)).setText(text);
+  }
+
+  private void chkBox(JComponentOperator frame, String name) {
+    new JCheckBoxOperator(frame, name).clickMouse();
+  }
+
+  private void rButton(JComponentOperator frame, String name) {
+    new JRadioButtonOperator(frame, name).clickMouse();
+  }
+
+  private void gotoMenu(JFrameOperator frame, String menupath) {
+    new JMenuBarOperator(frame).pushMenuNoBlock(menupath);
   }
 
   @AfterMethod
   public void tearDown() throws Exception {
-    gotoMenu("Файл|Выход");
+    gotoMenu(mainFrame, "Файл|Выход");
     new JButtonOperator(new JDialogOperator(), "Да").clickMouse();
   }
 
