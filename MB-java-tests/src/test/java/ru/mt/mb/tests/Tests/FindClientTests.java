@@ -16,6 +16,10 @@ public class FindClientTests {
   public void setUp() throws Exception {
     new ClassReference("mango.billing.client.Main").startApplication();
     mainFrame = new JFrameOperator();
+    login();
+  }
+
+  private void login() {
     JDialogOperator dialog = new JDialogOperator();
     new JTextFieldOperator(dialog, new NameComponentChooser("login")).setText("dev");
     new JPasswordFieldOperator(dialog).setText("1");
@@ -25,7 +29,7 @@ public class FindClientTests {
 
   @Test
   public void testFindClient() {
-    new JMenuBarOperator(mainFrame).pushMenuNoBlock("Файл|Найти клиента");
+    gotoMenu("Файл|Найти клиента");
     JComponentOperator findClient = new JComponentOperator(mainFrame);
     new JRadioButtonOperator(findClient, "Счет").clickMouse();
     new JRadioButtonOperator(findClient, "Создания").clickMouse();
@@ -35,9 +39,13 @@ public class FindClientTests {
     new JButtonOperator(findClient, new NameComponentChooser("findButton")).clickMouse();
   }
 
+  private void gotoMenu(String path) {
+    new JMenuBarOperator(mainFrame).pushMenuNoBlock(path);
+  }
+
   @AfterMethod
   public void tearDown() throws Exception {
-    new JMenuBarOperator(mainFrame).pushMenuNoBlock("Файл|Выход");
+    gotoMenu("Файл|Выход");
     new JButtonOperator(new JDialogOperator(), "Да").clickMouse();
   }
 
