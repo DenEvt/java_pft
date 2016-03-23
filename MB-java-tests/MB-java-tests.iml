@@ -18,5 +18,7 @@
     <orderEntry type="library" name="Gradle: org.netbeans:jemmy:2.2.7.5" level="project" />
     <orderEntry type="library" name="Gradle: com.beust:jcommander:1.48" level="project" />
     <orderEntry type="library" name="Gradle: org.beanshell:bsh:2.0b4" level="project" />
+    <orderEntry type="library" name="beansbinding-1.2.1" level="project" />
+    <orderEntry type="library" name="mango_billing_client" level="project" />
   </component>
 </module>
