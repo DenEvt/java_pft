@@ -22,8 +22,16 @@ public class FindClientTests {
     JDialogOperator dialog = new JDialogOperator();
     textField(dialog, "login", login);
     passwordField(dialog, "password", password);
-    new JButtonOperator(dialog, "ОК").clickMouse();
-    new JButtonOperator(new JComponentOperator(mainFrame), "Закрыть").clickMouse();
+    btnD(dialog, "ОК");
+    btnF(mainFrame, "Закрыть");
+  }
+
+  private void btnF(JFrameOperator frame, String namebtnf) {
+    new JButtonOperator(frame, namebtnf).clickMouse();
+  }
+
+  private void btnD(JDialogOperator dialog, String namebtnd) {
+    new JButtonOperator(dialog, namebtnd).clickMouse();
   }
 
   private void passwordField(JDialogOperator frame, String password, String text) {
@@ -34,7 +42,7 @@ public class FindClientTests {
   public void testFindClient() {
     gotoMenu(mainFrame, "Файл|Найти клиента");
     JComponentOperator findClient = new JComponentOperator(mainFrame);
-    rButton(findClient, "Счет");
+    rBtn(findClient, "Счет");
     chkBox(findClient, "Москва");
     textField(findClient, "find", "777777");
     btnC(findClient, "findButton");
@@ -52,7 +60,7 @@ public class FindClientTests {
     new JCheckBoxOperator(frame, name).clickMouse();
   }
 
-  private void rButton(JComponentOperator frame, String name) {
+  private void rBtn(JComponentOperator frame, String name) {
     new JRadioButtonOperator(frame, name).clickMouse();
   }
 
@@ -63,7 +71,7 @@ public class FindClientTests {
   @AfterMethod
   public void tearDown() throws Exception {
     gotoMenu(mainFrame, "Файл|Выход");
-    new JButtonOperator(new JDialogOperator(), "Да").clickMouse();
+    btnD(new JDialogOperator(), "Да");
   }
 
 }
