@@ -7,7 +7,7 @@ public class FindClientTests extends TestBase {
 
   @Test
   public void testFindClient() {
-    app.gotoMenu(app.mainFrame, "Файл|Найти клиента");
+    app.getMenuHelper().gotoFindClient();
     JComponentOperator findClient = new JComponentOperator(app.mainFrame);
     app.rBtn(findClient, "Счет");
     app.chkBox(findClient, "Москва");

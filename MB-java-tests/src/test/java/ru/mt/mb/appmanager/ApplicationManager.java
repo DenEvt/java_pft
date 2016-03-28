@@ -10,9 +10,12 @@ public class ApplicationManager {
 
   public JFrameOperator mainFrame;
 
+  private MenuHelper menuHelper;
+
   public void init() throws InvocationTargetException, NoSuchMethodException, ClassNotFoundException  {
     new ClassReference("mango.billing.client.Main").startApplication();
     mainFrame = new JFrameOperator();
+    menuHelper = new MenuHelper(mainFrame);
     login("dev", "1");
   }
 
@@ -52,12 +55,12 @@ public class ApplicationManager {
     new JRadioButtonOperator(frame, name).clickMouse();
   }
 
-  public void gotoMenu(JFrameOperator frame, String menupath) {
-    new JMenuBarOperator(frame).pushMenuNoBlock(menupath);
+  public void stop() {
+    menuHelper.gotoExit();
+    btnD(new JDialogOperator(), "Да");
   }
 
-  public void stop() {
-    gotoMenu(mainFrame, "Файл|Выход");
-    btnD(new JDialogOperator(), "Да");
+  public MenuHelper getMenuHelper() {
+    return menuHelper;
   }
 }
