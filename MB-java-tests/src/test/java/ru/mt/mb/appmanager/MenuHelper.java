@@ -19,3 +19,6 @@ public class MenuHelper {
     new JMenuBarOperator(mainFrame).pushMenuNoBlock("Файл|Выход");
   }
 }
+
+
+
