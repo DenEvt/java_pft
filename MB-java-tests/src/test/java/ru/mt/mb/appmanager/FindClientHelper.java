@@ -18,7 +18,7 @@ public class FindClientHelper {
   }
 
   public void btn2(String name) {
-    new JButtonOperator(findClient,name).clickMouse();
+    new JButtonOperator(findClient, name).clickMouse();
   }
 
   public void textField(String name, String text) {

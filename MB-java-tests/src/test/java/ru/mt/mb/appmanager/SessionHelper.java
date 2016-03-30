@@ -1,5 +1,6 @@
 package ru.mt.mb.appmanager;
 
+import org.netbeans.jemmy.accessibility.AccessibleNameChooser;
 import org.netbeans.jemmy.operators.*;
 import org.netbeans.jemmy.util.NameComponentChooser;
 
@@ -11,7 +12,7 @@ public class SessionHelper {
 
   public SessionHelper(JFrameOperator mainFrame) {
     this.mainFrame = mainFrame;
-    dialog = new JDialogOperator(mainFrame);
+    dialog = new JDialogOperator();   //mainFrame
     findClientHelper = new FindClientHelper(mainFrame);
   }
 
@@ -19,8 +20,12 @@ public class SessionHelper {
     textField(dialog, "login", login);
     passwordField(dialog, "password", password);
     btn("ОК");
-    findClientHelper.btn2("Закрыть");
-//  findClientHelper.btn("Закрыть");                 // пока нет нейма, кнопку не найдет
+    findClientHelper.btn2("Закрыть");                // поиск по аксесбл нейм
+//  findClientHelper.btn("Закрыть");                 // поиск по нейму
+  }
+
+  public void btn(String name) {
+    new JButtonOperator(dialog, new AccessibleNameChooser(name)).clickMouse();
   }
 
   public void textField(JDialogOperator frame, String login, String text) {
@@ -29,10 +34,6 @@ public class SessionHelper {
 
   public void passwordField(JDialogOperator frame, String password, String text) {
     new JPasswordFieldOperator(frame, new NameComponentChooser(password)).setText(text);
-  }
-
-  public void btn(String name) {
-    new JButtonOperator(dialog, name).clickMouse();
   }
 
 }
