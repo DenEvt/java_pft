@@ -12,7 +12,7 @@ public class SessionHelper {
 
   public SessionHelper(JFrameOperator mainFrame) {
     this.mainFrame = mainFrame;
-    dialog = new JDialogOperator();   //mainFrame
+    dialog = new JDialogOperator(mainFrame);
     findClientHelper = new FindClientHelper(mainFrame);
   }
 
@@ -25,7 +25,7 @@ public class SessionHelper {
   }
 
   public void btn(String name) {
-    new JButtonOperator(dialog, new AccessibleNameChooser(name)).clickMouse();
+    new JButtonOperator(new JDialogOperator(), new AccessibleNameChooser(name)).clickMouse();
   }
 
   public void textField(JDialogOperator frame, String login, String text) {

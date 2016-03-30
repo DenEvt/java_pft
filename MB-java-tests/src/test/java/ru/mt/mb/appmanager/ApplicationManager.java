@@ -1,9 +1,6 @@
 package ru.mt.mb.appmanager;
 
 import org.netbeans.jemmy.ClassReference;
-import org.netbeans.jemmy.accessibility.AccessibleNameChooser;
-import org.netbeans.jemmy.operators.JButtonOperator;
-import org.netbeans.jemmy.operators.JDialogOperator;
 import org.netbeans.jemmy.operators.JFrameOperator;
 
 import java.lang.reflect.InvocationTargetException;
@@ -27,7 +24,6 @@ public class ApplicationManager {
   public void stop() {
     menuHelper.gotoExit();
     sessionHelper.btn("Да");
-//    new JButtonOperator(new JDialogOperator(), new AccessibleNameChooser("Да")).clickMouse();
   }
 
   public MenuHelper getMenuHelper() {

@@ -1,5 +1,6 @@
 package ru.mt.mb.tests;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class FindClientTests extends TestBase {
