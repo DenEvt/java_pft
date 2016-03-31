@@ -13,6 +13,7 @@ public class FindClientTests extends TestBase {
     app.getFindClientHelper().textField("find", "777777");
     app.getFindClientHelper().btn("findButton");
     app.getFindClientHelper().btn2("Закрыть");
+
   }
 
 }
